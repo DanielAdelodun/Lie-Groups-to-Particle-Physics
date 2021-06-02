@@ -62,7 +62,7 @@ singleuser:
     - display_name: "Datascience environment"
       description: "If you want some additional tools. Comes with Python, R, and Julia. Does not include animation tools."
       kubespawner_override:
-              image: jupyter/datascience-notebook:hub-1.4.1
+        image: jupyter/datascience-notebook:hub-1.4.1
         lifecycle_hooks:
           postStart:
             exec:
