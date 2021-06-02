@@ -31,6 +31,13 @@ USER $NB_UID
 # Initialize conda for shell interaction
 RUN conda init bash
 
+# Install nbgitpuller
+RUN pip install --no-cache-dir \
+    nbgitpuller \
+    conda clean --all -f -y && \
+    fix-permissions "${CONDA_DIR}" && \
+    fix-permissions "/home/${NB_USER}"
+
 # Install matplotlib
 RUN conda install --quiet --yes \
     'matplotlib=3.4.*' \
