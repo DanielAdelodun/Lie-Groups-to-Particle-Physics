@@ -34,14 +34,14 @@ RUN conda init bash
 # Install matplotlib
 RUN conda install --quiet --yes \
     'matplotlib=3.4.*' \
-    'ipympl=0.7.*' \
+    'ipympl=0.7.*' && \
     conda clean --all -f -y && \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
 
 # Install Manim
 RUN pip install --no-cache-dir \
-    manim \
+    manim && \
     conda clean --all -f -y && \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
