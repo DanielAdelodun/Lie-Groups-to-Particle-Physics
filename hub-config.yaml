@@ -21,7 +21,7 @@ proxy:
   https:
     enabled: true
     hosts:
-      lie.adelodun.uk
+      - lie.adelodun.uk
     letsencrypt:
       contactEmail: daniel@stemstudios.tv
 
@@ -32,17 +32,17 @@ singleuser:
   defaultUrl: "/lab"
   image:
     name: danielade/liegroup
-    tag: latest
-    lifecycleHooks:
-      postStart:
-        exec:
-          command:
-            [
-              "gitpuller",
-              "https://github.com/DanielAdelodun/Lie-Groups-to-Particle-Physics",
-              "main",
-              "Lie-Groups-to-Particle-Physics",
-            ] 
+    tag: v0.1.0
+  lifecycleHooks:
+    postStart:
+      exec:
+        command:
+          [
+            "gitpuller",
+            "https://github.com/DanielAdelodun/Lie-Groups-to-Particle-Physics",
+            "main",
+            "Lie-Groups-to-Particle-Physics",
+          ] 
   profileList:
     - display_name: "Animation Tools"
       description: "An environment containing tools for mathematical animation."
@@ -50,8 +50,7 @@ singleuser:
     - display_name: "Animation Tools + Sagemath"
       description: "Sagemath has some pretty cool functionality. This enviornment contains all the animation tool, plus sage."
       kubespawner_override:
-        image: danielade/liegroup-sage
-        tag: latest
+        image: danielade/liegroup-sage:v0.1.0
         lifecycle_hooks:
           postStart:
             exec:
@@ -63,8 +62,7 @@ singleuser:
     - display_name: "Datascience environment"
       description: "If you want some additional tools. Comes with Python, R, and Julia. Does not include animation tools."
       kubespawner_override:
-        image: jupyter/datascience-notebook
-        tag: 2343e33dec46
+              image: jupyter/datascience-notebook:hub-1.4.1
         lifecycle_hooks:
           postStart:
             exec:
@@ -76,5 +74,4 @@ singleuser:
     - display_name: "Minimal Python"
       description: "Just Python"
       kubespawner_override:
-        image: jupyter/minimal-python
-        tag: latest
+        image: jupyter/minimal-notebook:hub-1.4.1
