@@ -45,7 +45,7 @@ singleuser:
           ] 
   profileList:
     - display_name: "Animation Tools"
-      description: "An environment containing tools for mathematical animation."
+      description: "A jupyterlab environment containing tools for mathematical animation."
       default: true
     - display_name: "Animation Tools + Sagemath"
       description: "Sagemath has some pretty cool functionality. This enviornment contains all the animation tools, plus sage."
@@ -67,11 +67,15 @@ singleuser:
           postStart:
             exec:
               command:
-                - "sh"
-                - "-c"
-                - >
-                  gitpuller https://github.com/DanielAdelodun/Lie-Groups-to-Particle-Physics main Lie-Groups-to-Particle-Physics;
+                - "echo"
+                - "Ready to Rock"
     - display_name: "Minimal Python"
       description: "Just Python"
       kubespawner_override:
         image: jupyter/minimal-notebook:hub-1.4.1
+        lifecycle_hooks:
+          postStart:
+            exec:
+              command:
+                - "echo"
+                - "Ready to Roll"
