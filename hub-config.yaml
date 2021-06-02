@@ -13,7 +13,7 @@ hub:
       password: liegroup 
     JupyterHub:
       authenticator_class: dummy
-        admin_access: true
+      admin_access: true
       allow_named_servers: true
       named_server_limit_per_user: 5
 
