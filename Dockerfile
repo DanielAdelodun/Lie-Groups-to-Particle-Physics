@@ -22,7 +22,7 @@ RUN apt-get update && \
     texlive-latex-recommended \
     texlive-science \
     texlive-fonts-extra \
-    tipa \
+    tipa && \
     rm -rf /var/lib/apt/lists/*
 
 
