@@ -46,24 +46,24 @@ RUN pip install --no-cache-dir \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
 
-# Install Sage conda environment
-RUN conda install --quiet --yes -n base -c conda-forge widgetsnbextension && \
-    conda create --quiet --yes -n sage -c conda-forge sage=$SAGE_VERSION python=$SAGE_PYTHON_VERSION && \
-    conda clean --all -f -y && \
-    npm cache clean --force && \
-    fix-permissions $CONDA_DIR && \
-    fix-permissions /home/$NB_USER
-
-# Install sagemath kernel
-RUN mkdir -p /home/$NB_USER/.local/share/jupyter/kernels && \
-    ln -s /opt/conda/envs/sage/share/jupyter/kernels/sagemath /home/$NB_USER/.local/share/jupyter/kernels/ 
-
-# Install nbgitpuller
-RUN pip install --no-cache-dir \
-    nbgitpuller && \
-    conda clean --all -f -y && \
-    fix-permissions "${CONDA_DIR}" && \
-    fix-permissions "/home/${NB_USER}"
+## Install Sage conda environment
+#RUN conda install --quiet --yes -n base -c conda-forge widgetsnbextension && \
+#    conda create --quiet --yes -n sage -c conda-forge sage=$SAGE_VERSION python=$SAGE_PYTHON_VERSION && \
+#    conda clean --all -f -y && \
+#    npm cache clean --force && \
+#    fix-permissions $CONDA_DIR && \
+#    fix-permissions /home/$NB_USER
+#
+## Install sagemath kernel
+#RUN mkdir -p /home/$NB_USER/.local/share/jupyter/kernels && \
+#    ln -s /opt/conda/envs/sage/share/jupyter/kernels/sagemath /home/$NB_USER/.local/share/jupyter/kernels/ 
+#
+## Install nbgitpuller
+#RUN pip install --no-cache-dir \
+#    nbgitpuller && \
+#    conda clean --all -f -y && \
+#    fix-permissions "${CONDA_DIR}" && \
+#    fix-permissions "/home/${NB_USER}"
 
 
 # Import matplotlib the first time to build the font cache.
