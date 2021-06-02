@@ -41,7 +41,7 @@ RUN conda install --quiet --yes \
 
 # Install Manim
 RUN pip install --no-cache-dir \
-    manim
+    manim \
     conda clean --all -f -y && \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
