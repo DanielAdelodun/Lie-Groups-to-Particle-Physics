@@ -33,7 +33,7 @@ RUN conda init bash
 
 # Install nbgitpuller
 RUN pip install --no-cache-dir \
-    nbgitpuller \
+    nbgitpuller && \
     conda clean --all -f -y && \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
