@@ -48,7 +48,7 @@ singleuser:
       description: "An environment containing tools for mathematical animation."
       default: true
     - display_name: "Animation Tools + Sagemath"
-      description: "Sagemath has some pretty cool functionality. This enviornment contains all the animation tool, plus sage."
+      description: "Sagemath has some pretty cool functionality. This enviornment contains all the animation tools, plus sage."
       kubespawner_override:
         image: danielade/liegroup-sage:v0.1.0
         lifecycle_hooks:
