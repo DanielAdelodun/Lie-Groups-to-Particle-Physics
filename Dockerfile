@@ -31,13 +31,6 @@ USER $NB_UID
 # Initialize conda for shell interaction
 RUN conda init bash
 
-# Install nbgitpuller
-RUN pip install --no-cache-dir \
-    nbgitpuller && \
-    conda clean --all -f -y && \
-    fix-permissions "${CONDA_DIR}" && \
-    fix-permissions "/home/${NB_USER}"
-
 # Install matplotlib
 RUN conda install --quiet --yes \
     'matplotlib=3.4.*' \
@@ -64,6 +57,14 @@ RUN conda install --quiet --yes -n base -c conda-forge widgetsnbextension && \
 # Install sagemath kernel
 RUN mkdir -p /home/$NB_USER/.local/share/jupyter/kernels && \
     ln -s /opt/conda/envs/sage/share/jupyter/kernels/sagemath /home/$NB_USER/.local/share/jupyter/kernels/ 
+
+# Install nbgitpuller
+RUN pip install --no-cache-dir \
+    nbgitpuller && \
+    conda clean --all -f -y && \
+    fix-permissions "${CONDA_DIR}" && \
+    fix-permissions "/home/${NB_USER}"
+
 
 # Import matplotlib the first time to build the font cache.
 ENV XDG_CACHE_HOME="/home/${NB_USER}/.cache/"
