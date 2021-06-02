@@ -1,3 +1,3 @@
 # Lie Groups to Particle Physics
 
-Animations for Lieterature videos
+Assets and files for work-in-progress Lieterature video.
