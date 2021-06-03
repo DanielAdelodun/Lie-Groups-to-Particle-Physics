@@ -10,6 +10,7 @@ USER root
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     dvipng \
+    dvisvgm \
     imagemagick \
     tk tk-dev \
     ffmpeg \
