@@ -50,7 +50,31 @@ singleuser:
     - display_name: "Animation Tools + Sagemath"
       description: "Sagemath has some pretty cool functionality. This enviornment contains all the animation tools, plus sage."
       kubespawner_override:
-        image: danielade/liegroup-sage:v0.1.0
+        image: danielade/liegroup-sagemath:v0.1.0
+        lifecycle_hooks:
+          postStart:
+            exec:
+              command:
+                - "sh"
+                - "-c"
+                - >
+                  gitpuller https://github.com/DanielAdelodun/Lie-Groups-to-Particle-Physics main Lie-Groups-to-Particle-Physics;
+    - display_name: "Animation + Datascience Tools"
+      description: "Animation environment with lots of useful tools - courtesy of Scipy, Julia and R."
+      kubespawner_override:
+        image: danielade/liegroup-datascience:v0.1.0
+        lifecycle_hooks:
+          postStart:
+            exec:
+              command:
+                - "sh"
+                - "-c"
+                - >
+                  gitpuller https://github.com/DanielAdelodun/Lie-Groups-to-Particle-Physics main Lie-Groups-to-Particle-Physics;
+    - display_name: "Animation + Datascience + Sagemath"
+      description: "Probably a bit much..."
+      kubespawner_override:
+        image: danielade/liegroup-extra:v0.1.0
         lifecycle_hooks:
           postStart:
             exec:
@@ -60,7 +84,7 @@ singleuser:
                 - >
                   gitpuller https://github.com/DanielAdelodun/Lie-Groups-to-Particle-Physics main Lie-Groups-to-Particle-Physics;
     - display_name: "Datascience environment"
-      description: "If you want some additional tools. Comes with Python, R, and Julia. Does not include animation tools."
+      description: "If you want some additional tools. Comes with Scipy, R, and Julia. Does not include animation tools."
       kubespawner_override:
         image: jupyter/datascience-notebook:hub-1.4.1
         lifecycle_hooks:
