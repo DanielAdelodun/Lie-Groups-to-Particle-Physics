@@ -1,4 +1,8 @@
 *~
 *.swp
 
+# If you want to make notes for yourself, put them in NOTES.md at the root of the repo
 NOTES.md
+
+# Ignore the media files that manim will create during the test.
+media/
