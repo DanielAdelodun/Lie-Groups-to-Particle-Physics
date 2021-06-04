@@ -3,12 +3,14 @@ hub:
     Authenticator:
       allowed_users:
         - daniel
-        - user1
-        - user2
+        - aly
+        - johannes
+        - james
       admin_users:
         - daniel
-        - user1
-        - user2
+        - aly
+        - johannes
+        - james
     DummyAuthenticator:
       password: liegroup 
     JupyterHub:
@@ -48,7 +50,7 @@ singleuser:
       description: "A jupyterlab environment containing tools for mathematical animation."
       default: true
     - display_name: "Animation Tools + Sagemath"
-      description: "Sagemath has some pretty cool functionality. This enviornment contains all the animation tools, plus sage."
+      description: "(Broken) Sagemath has some pretty cool functionality. This enviornment contains all the animation tools, plus sage."
       kubespawner_override:
         image: danielade/liegroup-sagemath:v0.1.0
         lifecycle_hooks:
@@ -72,7 +74,7 @@ singleuser:
                 - >
                   gitpuller https://github.com/DanielAdelodun/Lie-Groups-to-Particle-Physics main Lie-Groups-to-Particle-Physics;
     - display_name: "Animation + Datascience + Sagemath"
-      description: "Probably a bit much..."
+      description: "(Broken) Probably a bit much..."
       kubespawner_override:
         image: danielade/liegroup-extra:v0.1.0
         lifecycle_hooks:
