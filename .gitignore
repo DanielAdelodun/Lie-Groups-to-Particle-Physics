@@ -6,3 +6,5 @@ NOTES.md
 
 # Ignore the media files that manim will create during the test.
 media/
+
+.ipynb_checkpoints/
