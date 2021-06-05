@@ -6,11 +6,17 @@ hub:
         - aly
         - johannes
         - james
+        - michael
+        - nick
+        - arkadeep
       admin_users:
         - daniel
         - aly
         - johannes
         - james
+        - michael
+        - nick
+        - arkadeep
     DummyAuthenticator:
       password: liegroup 
     JupyterHub:
